@@ -6,8 +6,34 @@
 
 // Classify a triangle, given side lengths as strings:
 // Not fully implemented yet
+char *check(long sideA, long sideB, long sideC) {
+  if ((sideA <= 0) || (sideB <= 0) || (sideC <= 0)) return "Illegal";
+  else if (((sideA + sideB) < sideC) || ((sideB + sideC) < sideA) || ((sideA + sideC) < sideB)) return "Impossible";
+  else if (((sideA + sideB) == sideC) || ((sideB + sideC) == sideA) || ((sideA + sideC) == sideB)) return "Flat";
+  else if (sideA == sideB && sideB == sideC) return "Equilateral";
+  else if ((sideA == sideB && sideB != sideC) || (sideB == sideC && sideB != sideA) || (sideA == sideC && sideA != sideB)) return "Isosceles";
+  else if ((sideA * sideA + sideB * sideB == sideC * sideC) || (sideB * sideB + sideC * sideC == sideA * sideA) || (sideA * sideA + sideC * sideC == sideB * sideB)) return "Right";
+  else if (sideA != sideB && sideB != sideC) return "Scalene";
+  else return "error";
+}
+
 char *triangle(char *length1, char *length2, char *length3) {
-    return "Equilateral";
+  int sideA = atoi(length1);
+  int sideB = atoi(length2);
+  int sideC = atoi(length3);
+  char a[20], b[20], c[20];
+  sprintf(a, "%d", sideA);
+  sprintf(b, "%d", sideB);
+  sprintf(c, "%d", sideC);
+
+  if ((strcmp(a, length1) == 0) && (strcmp(b, length2) == 0) && (strcmp(c, length3) == 0)) {
+    // fprintf(stderr, "Side A %d\t Side B %d\t Side C %d\n", sideA, sideB, sideC);
+    return check(sideA, sideB, sideC);
+  }
+  else {
+    return "Illegal";
+  }
+
 }
 
 // Check that two strings are equal
@@ -25,7 +51,6 @@ void test() {
     eq(triangle("8", "8", "8"), "Equilateral"); mark++;
     eq(triangle("1073", "1073", "1073"), "Equilateral"); mark++;
     eq(triangle("15", "15", "13"), "Isosceles"); mark++;
-    /*
     eq(triangle("15", "13", "15"), "Isosceles"); mark++;
     eq(triangle("13", "15", "15"), "Isosceles"); mark++;
     eq(triangle("25", "25", "27"), "Isosceles"); mark++;
@@ -73,7 +98,7 @@ void test() {
     eq(triangle("1100000000","1705032704","1805032704"),"Scalene"); mark++;
     eq(triangle("2000000001","2000000002","2000000003"),"Scalene"); mark++;
     eq(triangle("150000002","666666671","683333338"),"Scalene"); mark++;
-*/
+
     printf("Tests passed: %d\n", mark);
 }
 
