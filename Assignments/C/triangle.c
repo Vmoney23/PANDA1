@@ -4,8 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Classify a triangle, given side lengths as strings:
-// Not fully implemented yet
+// Checks sides against definitions of each type of triangle
 char *check(long sideA, long sideB, long sideC) {
   if ((sideA <= 0) || (sideB <= 0) || (sideC <= 0)) return "Illegal";
   else if (((sideA + sideB) < sideC) || ((sideB + sideC) < sideA) || ((sideA + sideC) < sideB)) return "Impossible";
@@ -17,6 +16,7 @@ char *check(long sideA, long sideB, long sideC) {
   else return "error";
 }
 
+// Checks input to make sure it valid, by comparing the input string to its integer value (which is in string form)
 char *compare(char *length1, char *length2, char *length3) {
   int sideA = atoi(length1);
   int sideB = atoi(length2);
@@ -34,6 +34,7 @@ char *compare(char *length1, char *length2, char *length3) {
   }
 }
 
+// Main function that accepts inputs and begins the checks
 char *triangle(char *length1, char *length2, char *length3) {
   return compare(length1, length2, length3);
 }
