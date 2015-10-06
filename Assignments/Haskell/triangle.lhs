@@ -341,7 +341,7 @@ implementation, but it looks like whoever did it gave
 up too early.
 
 > area :: Triple -> Double
-> area (ia, ib, ic) = sqrt(s * (s - a) * (s - b) * (s - c))  --DONE
+> area (ia, ib, ic) = sqrt(s*(s-a)*(s-b)*(s-c))  --DONE
 >   where (a, b, c) = (fromInteger ia, fromInteger ib, fromInteger ic)
 >         s = (a + b + c) / 2
 
