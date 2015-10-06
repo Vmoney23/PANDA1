@@ -376,10 +376,13 @@ are automatically provided.
 where the final total area is rounded down with `floor`.
 
 > ex3 :: Int -> Int
-> ex3 n = floor(sum(map area (filter isScal (take n triangles))))
+> ex3 n = floor(sum(map area (take n scalenes)))
 
 > isScal :: Triple -> Bool
 > isScal t = (triangle t == Scalene)
+
+> scalenes :: [Triple]
+> scalenes = filter isScal triangles --DONE
 
 ***
 
