@@ -1,0 +1,18 @@
+Algorithms Worksheet 1
+
+1.a) The big-oh complexity of adding two n-digit numbers is “n”. This is because each addition involves only 2 digits but is 1 operation, and there are n digits to operate on. 1 x n = n. Addition also requires the use of carry-over numbers, of which there are n, therefore this also requires n operations. n + n = 2n, which simplifies down to O(n).
+
+1.b) The big-oh complexity of multiplying two n-digit numbers is “n^2”. This is because each digit in one number is multiplied by n digits, and there are n digits. Each multiplication is one operation, but each digit undergoes n operations. n x n = n^2 -> O(n^2).
+
+1.c) The big-oh complexity of calculating x^n is “n^2”. This is similar to the previous question of multiplication where a single digit undergoes n multiplication operations (each of which counts as one operation). Despite x being a single digit number, n contains an unknown number of digits, so finding x^n for any n involves n operations over n digits. n x n = n^2 -> O(n^2).
+
+2.a) The big-oh complexity of evaluating p(x) is “n”. p(x) is evaluated through addition, which has a complexity of O(n). There are also n multiplications, each of which is a single operation, therefore has a complexity of n. n + n = 2n, which simplifies down to O(n).
+
+2.b) The big-oh complexity of using Horner’s Method is “n”. Each operation is an addition therefore has a complexity of O(n).
+
+2.c) The big-oh complexity of multiplying two square matrices is “n^3”. I reached this answer in two ways, first I wrote a Java program to perform the multiplication, which contained 3 for loops running over n numbers, which means the complexity is O(n^3). Secondly, I looked at the calculations involved: there are n digits being multiplied by n digits, therefore that aspect has complexity n^2, but there are also n additions taking place over those n^2 multiplications. n x n x n = n^3 -> O(n^3).
+
+3. The method to find names up to length n, while abiding to the conditions set out in the question, involves recursively building names up from length 1. For an alphabet of size m, the first iteration creates m different names of length 1. 
+You then set conditions upon the names and split them into 3 categories: A, which consists of names ending in 3 of the same letter consecutively; B, which consists of names ending in 2 of the same letter consecutively; C, which consists of names ending in no recurring letters. 
+To create names of length 2, we add 1 letter onto each of the names already created of length 1. All of those names fit into category C, because there aren’t enough letters for them to be in Cat. A or B yet. So C_1 = m names. A_2 = 0 because there are no names ending in three recurring letters yet; B_2 = m because each of the names from C_1 can have the same letter added onto them and then they fall into category B, so we can rewrite this as B_2 = C_1. C_2 is created by adding every letter to the end of every existing name, unless the letter is repeated. For m letters, this means that only (m-1) letters can be used to fit into category C, otherwise the name would come under B, or A. Therefore, C_2 = (m-1) x C_1. 
+Moving onto three letter names, we have our first names that can fall under category A, which incidentally is all the names from B_2 with the same letter added onto the end, so A_3 = B_2
