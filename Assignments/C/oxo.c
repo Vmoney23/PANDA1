@@ -82,7 +82,7 @@ struct board position(struct board b, char *text) {
         b.column = -1;
       }
     }
-
+    
     return b;
 }
 
@@ -92,7 +92,7 @@ struct board position(struct board b, char *text) {
 struct board move(struct board b) {
     b.cells[b.row][b.column] = b.player;
     b.player = other(b.player);
-    b.moves += 1;
+    b.moves =  b.moves + 1;
     return b;
 }
 
@@ -114,7 +114,33 @@ bool line(char p, char x, char y, char z) {
 // TODO: finish this function
 // Check whether or not the player who has just moved has won.
 bool won(struct board b) {
-    return false;
+	if ((line(other(b.player), b.cells[0][0], b.cells[0][1], b.cells[0][2])) == true) {
+		return true;
+	}
+	else if ((line(other(b.player), b.cells[1][0], b.cells[1][1], b.cells[1][2])) == true) {
+		return true;
+	}
+	else if ((line(other(b.player), b.cells[2][0], b.cells[2][1], b.cells[2][2])) == true) {
+		return true;
+	}
+	else if ((line(other(b.player), b.cells[0][0], b.cells[1][0], b.cells[2][0])) == true) {
+		return true;
+	}
+	else if ((line(other(b.player), b.cells[0][1], b.cells[1][1], b.cells[2][1])) == true) {
+		return true;
+	}
+	else if ((line(other(b.player), b.cells[0][2], b.cells[1][2], b.cells[2][2])) == true) {
+		return true;
+	}
+	else if ((line(other(b.player), b.cells[0][0], b.cells[1][1], b.cells[2][2])) == true) {
+		return true;
+	}
+	else if ((line(other(b.player), b.cells[2][0], b.cells[1][1], b.cells[0][2])) == true) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 // TODO: finish this function
@@ -137,6 +163,17 @@ void display(struct board b) {
 // TODO: finish this function
 // Play the game interactively between two human players who take turns.
 void play() {
+	// struct board b;
+	// b = newBoard();
+	// while (won(b) != true) {
+	// 	printf("Player %c's turn \n", b.player);
+	// 	char m[2];
+	// 	scanf("%s", m);
+	// 	position(b, m);
+	// 	move(b);
+	// 	display(b);
+	// }
+	// printf("Player %c wins!\n", b.player);
 }
 
 //-----------------------------------------------------------------------------
