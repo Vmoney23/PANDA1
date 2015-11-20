@@ -30,10 +30,11 @@ triangle = Fd 1 :> Rt 120
 
 -- TODO #1.2
 polygon :: Int -> Command
-polygon n = rep n (360/n)
-
-rep :: Command -> Command
-rep n x = repeat n (Fd 1 :> Rt (180-x))
+polygon n = foldl1 (:>) rep
+  where
+    rep = replicate n cmd
+    cmd = Fd 1 :> Rt ang
+    ang = 360/fromIntegral(n)
 
 hexagon :: Command
 hexagon = polygon 6
