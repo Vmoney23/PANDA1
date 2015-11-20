@@ -22,13 +22,13 @@ square = Fd 1 :> Rt 90
       :> Fd 1 :> Rt 90
       :> Fd 1 :> Rt 90
 
--- TODO #1.1
+-- DONE #1.1
 triangle :: Command
 triangle = Fd 1 :> Rt 120
 		:> Fd 1 :> Rt 120 
 		:> Fd 1 :> Rt 120
 
--- TODO #1.2
+-- DONE #1.2
 polygon :: Int -> Command
 polygon n = foldl1 (:>) rep
   where
@@ -39,11 +39,13 @@ polygon n = foldl1 (:>) rep
 hexagon :: Command
 hexagon = polygon 6
 
--- TODO #1.3
+-- DONE #1.3
 squares :: Int -> Command
 squares 2 = square :> scale 0.9 square
 squares 3 = square :> scale 0.9 (square :> scale 0.9 square)
-squares n = undefined
+squares n 
+  | n == 0 = Fd 0
+  | otherwise = square :> scale 0.9 (squares (n-1))
 
 scale :: Double -> Command -> Command
 scale s (Fd z) = Fd (s * z)
