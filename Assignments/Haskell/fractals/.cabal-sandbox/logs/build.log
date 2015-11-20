@@ -1,0 +1,48 @@
+
+package: GLURaw-1.5.0.2
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+flags: usenativewindowslibraries
+dependencies: transformers-0.4.2.0 base-4.8.1.0 OpenGLRaw-2.6.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLUT-2.7.0.3
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+flags: usenativewindowslibraries
+dependencies: transformers-0.4.2.0 containers-0.5.6.2 base-4.8.1.0
+              array-0.5.1.0 StateVar-1.1.0.1 OpenGLRaw-2.6.0.0 OpenGL-2.13.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGL-2.13.1.0
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: transformers-0.4.2.0 text-1.2.1.3 containers-0.5.6.2
+              bytestring-0.10.6.0 base-4.8.1.0 StateVar-1.1.0.1 OpenGLRaw-2.6.0.0
+              ObjectName-1.1.0.0 GLURaw-1.5.0.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGLRaw-2.6.0.0
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+flags: usenativewindowslibraries useglxgetprocaddress usegles2
+       -osandroid
+dependencies: transformers-0.4.2.0 text-1.2.1.3 half-0.2.2.1
+              containers-0.5.6.2 bytestring-0.10.6.0 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
