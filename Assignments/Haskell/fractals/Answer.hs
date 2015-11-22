@@ -53,9 +53,14 @@ scale s (Bk z) = Bk (s * z)
 scale s (p :> q) = scale s p :> scale s q
 scale s command = command
 
--- TODO #1.4
+-- DONE #1.4
 repscale :: Int -> Double -> Command -> Command
-repscale = undefined
+repscale 0 x cmd = Fd 0
+repscale n 0 cmd = cmd
+repscale n x cmd
+  | n == 1 = cmd
+  | n == 2 = cmd :> scale x cmd
+  | otherwise = cmd :> scale x (repscale (n-1) x cmd)
 
 hexagons :: Int -> Command
 hexagons n = repscale n 0.8 hexagon
