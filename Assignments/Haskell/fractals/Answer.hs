@@ -96,14 +96,14 @@ fibTree 0 = Tip
 fibTree 1 = Tip
 fibTree n = Node (fibTree (n-1)) n (fibTree (n-2))
 
--- TODO #2.4
+-- DONE #2.4
 drawTree :: Double -> Tree Int -> Command
 drawTree d = foldTree tip node
   where
     tip :: Command
     tip        = Fd 0
     node :: Command -> Int -> Command -> Command
-    node l x r = 
+    node l x r = Go (Fd (fromIntegral x) :> Lt d :> l) :> Go (Fd (fromIntegral x) :> Rt d :> r)
 
 -----------------------------------------------------------
 -- Part 3
@@ -116,16 +116,20 @@ koch n = scale (1/3) (koch (n-1)) :> Lt 60
       :> scale (1/3) (koch (n-1)) :> Lt 60
       :> scale (1/3) (koch (n-1))
 
--- TODO #3.1
+-- DONE #3.1
 kochflake :: Int -> Command
-kochflake n = undefined
+kochflake n = koch n :> Rt 120
+           :> koch n :> Rt 120
+           :> koch n :> Rt 120
 
--- TODO #3.2
+-- DONE #3.2
 lsystem :: Int -> Double -> [String] -> String -> Command
 lsystem 0 d rs r       = Fd 1
 lsystem n d rs []      = Fd 0
-lsystem n d rs ('+':r) = undefined
-lsystem n d rs (c:r)   = undefined
+lsystem n d rs ('+':r) = Lt d
+lsystem n d rs ('-':r) = Rt d
+lsystem n d rs (c:r)   = foldr f (Fd 0) (rs !! (ix c)) :> lsystem n d rs r
+  where f z ix = (lsystem (n-1) d rs [z]) :> ix
 
 ix :: Char -> Int
 ix c = ord c - ord '0'
