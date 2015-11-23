@@ -1,4 +1,4 @@
-module Answer where
+ module Answer where
 import Turtle
 import Data.Char
 
@@ -65,7 +65,6 @@ repscale n x cmd
 hexagons :: Int -> Command
 hexagons n = repscale n 0.8 hexagon
 
-
 -----------------------------------------------------------
 -- Part 2
 -----------------------------------------------------------
@@ -80,27 +79,31 @@ data Tree a
   | Node (Tree a) a (Tree a)
   deriving Show
 
--- TODO #2.1
+-- DONE #2.1
 instance Functor Tree where
   -- fmap :: (a -> b) -> Tree a -> Tree b
-  fmap = undefined
+  fmap f Tip = Tip
+  fmap f (Node l x r) = Node (fmap f l) (f x) (fmap f r)
 
--- TODO #2.2
+-- DONE #2.2
 foldTree :: b -> (b -> a -> b -> b) -> Tree a -> b
-foldTree = undefined
+foldTree tip node Tip = tip
+foldTree tip node (Node l x r) = node(foldTree tip node l) x (foldTree tip node r) 
 
--- TODO #2.3
+-- DONE #2.3
 fibTree :: Int -> Tree Int
-fibTree = undefined
+fibTree 0 = Tip
+fibTree 1 = Tip
+fibTree n = Node (fibTree (n-1)) n (fibTree (n-2))
 
 -- TODO #2.4
 drawTree :: Double -> Tree Int -> Command
 drawTree d = foldTree tip node
   where
     tip :: Command
-    tip        = undefined
+    tip        = Fd 0
     node :: Command -> Int -> Command -> Command
-    node l x r = undefined
+    node l x r = 
 
 -----------------------------------------------------------
 -- Part 3
