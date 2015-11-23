@@ -128,8 +128,8 @@ lsystem 0 d rs r       = Fd 1
 lsystem n d rs []      = Fd 0
 lsystem n d rs ('+':r) = Lt d
 lsystem n d rs ('-':r) = Rt d
-lsystem n d rs (c:r)   = foldr f (Fd 0) (rs !! (ix c)) :> lsystem n d rs r
-  where f z ix = (lsystem (n-1) d rs [z]) :> ix
+lsystem n d rs (c:r)   = foldr fn (Fd 0) (rs !! (ix c)) :> lsystem n d rs r
+  where fn z ix = (lsystem (n-1) d rs [z]) :> ix
 
 ix :: Char -> Int
 ix c = ord c - ord '0'
