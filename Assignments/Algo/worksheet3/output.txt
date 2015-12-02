@@ -1,0 +1,56 @@
+Reading into the hash table took 0.045103s.
+Reading into the linked list took 1.928975s.
+The number of empty indexes is 8661.
+The number of words is 85155.
+The length of the longest overflow list is 15859.
+Enter word to query: looking
+Querying for looking
+'looking' occurs 24 times.
+It took 0.000012 seconds in the Linked List.
+It took 0.000001 seconds in the Hash Table.
+Another query? [y/n] 
+y
+Enter word to query: me
+Querying for me
+'me' occurs 142 times.
+It took 0.000019 seconds in the Linked List.
+It took 0.000001 seconds in the Hash Table.
+Another query? [y/n] 
+y
+Enter word to query: epiphany
+The word 'epiphany', does not exist in the text.
+Another query? [y/n] 
+y
+Enter word to query: seraphim
+Querying for seraphim
+'seraphim' occurs 5 times.
+It took 0.000103 seconds in the Linked List.
+It took 0.000002 seconds in the Hash Table.
+Another query? [y/n] 
+y
+Enter word to query: ardent
+Querying for ardent
+'ardent' occurs 12 times.
+It took 0.000151 seconds in the Linked List.
+It took 0.000002 seconds in the Hash Table.
+Another query? [y/n] 
+y
+Enter word to query: windless
+Querying for windless
+'windless' occurs 2 times.
+It took 0.000151 seconds in the Linked List.
+It took 0.000001 seconds in the Hash Table.
+Another query? [y/n] 
+y
+Enter word to query: esthetic
+Querying for esthetic
+'esthetic' occurs 30 times.
+It took 0.000129 seconds in the Linked List.
+It took 0.000002 seconds in the Hash Table.
+Another query? [y/n] 
+y
+Enter word to query: computer
+The word 'computer', does not exist in the text.
+Another query? [y/n] 
+n
+Quitting program!
