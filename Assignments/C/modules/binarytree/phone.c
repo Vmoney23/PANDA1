@@ -4,10 +4,6 @@
 #include <stdbool.h>
 #include <strings.h>
 
-int compare(item newkey, item currentkey) {
-  	return strcmp(newkey, currentkey); 
-}
-
 void add(tree *t) {
 	char nl, name[20], number[20];
 	printf("Please enter the full name of the contact you are adding:\n");
@@ -21,7 +17,7 @@ void find(tree *t) {
 	char nl, name[20];
 	printf("Please enter the name of the contact you are trying to find:\n");
 	scanf("%s%c", &name, &nl);
-	getNumber(t, name);
+	getKey(t, name);
 }
 
 void update(tree *t) {
@@ -30,7 +26,7 @@ void update(tree *t) {
 	scanf("%s%c", &name, &nl);
 	printf("Please enter the new number:\n");
 	scanf("%s%c", &number, &nl);
-	editNumber(t, name, number);
+	editKey(t, name, number);
 	printf("%s successfully updated\n", name);
 }
 
@@ -45,6 +41,7 @@ int query(tree *t) {
 	switch(option) {
 		case '1':
 			add(t);
+			printf("You now have %d contact(s)\n", getCount(t));
 			return 1;
 			break;
 		case '2':
@@ -57,6 +54,10 @@ int query(tree *t) {
 			break;
 		case '4':
 			return 0;
+			break;
+		default :
+			printf("Please enter a valid option!\n");
+			return 1;
 			break;
 	}
 }

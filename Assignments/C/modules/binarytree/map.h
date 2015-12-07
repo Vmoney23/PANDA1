@@ -15,6 +15,7 @@ typedef struct tree tree;
 
 tree *newTree();
 void insert(tree *t, item one, item2 two);
-void getNumber(tree *t, item name);
-void editNumber(tree *t, item one, item new);
-int compare(item newkey, item currentkey);
+void getKey(tree *t, item name);
+void editKey(tree *t, item one, item new);
+int compareKey(item newKey, item currentkey);
+int getCount(tree *t);
