@@ -11,8 +11,6 @@ struct node {
 typedef struct node node;
 
 struct ring {
-	// node *first;
-	// node *last;
 	node *current;
 	node *sentinel;
 	int count;
@@ -130,6 +128,7 @@ void deleteCurrent(ring *r) {
 			r->current->prev = nodeP;
 			r->current->next = nodeN->next;
 		}
+		r->count--;
 	}
 }
 
@@ -140,4 +139,9 @@ bool isEmpty(ring *r) {
 	} else {
 		return false;
 	}
+}
+
+// Return length of ring list
+int getLength(ring *r) {
+	return (r->count);
 }

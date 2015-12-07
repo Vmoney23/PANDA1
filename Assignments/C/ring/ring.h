@@ -11,7 +11,7 @@ typedef char *item;
 struct ring;
 typedef struct ring ring;
 
-// Create new ring structure
+// Create new ring list
 ring *newRing();
 // Set current to first 
 void setFirst(ring *r);
@@ -31,3 +31,5 @@ void shiftBackward(ring *r);
 void deleteCurrent(ring *r);
 // Check if ring is empty
 bool isEmpty(ring *r);
+// Return length of ring list
+int getLength(ring *r);

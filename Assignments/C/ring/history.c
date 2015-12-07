@@ -5,8 +5,12 @@
 #include <string.h>
 #include <strings.h>
 
+// Loads ring with nodes containing a fake web-history. Demonstrates
+// both types of insert, and a backward shift. Ordered so that the most
+// recently visited webpage is 'first' in the linked list (but was 
+// entered last in this).
 void loadRing(ring *r) {
-	insertBefore(r, "http://www.google.com");
+	insertAfter(r, "http://www.google.com");
 	insertBefore(r, "https://www.google.co.uk/?gfe_rd=cr&ei=58RkVqCSEITP0wWvzrPQDg#q=what%20is%20computer%20science");
 	shiftBackward(r);
 	insertBefore(r, "http://www.bbc.co.uk/guides/zxgdwmn");
@@ -43,6 +47,20 @@ void loadRing(ring *r) {
 	setFirst(r);
 }
 
+// Prints out all the links, starting at the current link going 
+// backwards
+void printAll(ring *r) {
+	setFirst(r);
+	for (int i = getLength(r); i>0; i--) {
+		printf("%d: %s\n", i, getCurrent(r));
+		shiftForward(r);
+	}
+}
+
+// Queries the use to find out what actions they want to perform.
+// Runs continuously until the user selects 'Quit'. Contains basic
+// operations for manipulating a doubly linked list, except adding
+// a new node.
 int query(ring *r) {
 	printf("What would you like to do?\n");
 	printf("1 - View previous website\n");
@@ -51,10 +69,13 @@ int query(ring *r) {
 	printf("4 - View first website\n");
 	printf("5 - Open current website\n");
 	printf("6 - Remove from history\n");
-	printf("7 - Quit\n");
+	printf("7 - Print number of links stored\n");
+	printf("8 - Print all links (from last to first)\n");
+	printf("9 - Quit\n");
 	char option, nl;
 	char link[120] = "open ";
 	scanf("%c%c", &option, &nl);
+	
 	switch(option){
 		case '1':
 			shiftForward(r);
@@ -88,6 +109,16 @@ int query(ring *r) {
 			return 1;
 			break;
 		case '7':
+			printf("There are %d links stored.\n", getLength(r));
+			printf("Current: \n%s\n", getCurrent(r));
+			return 1;
+			break;
+		case '8':
+			printAll(r);
+			printf("\nCurrent: \n%s\n", getCurrent(r));
+			return 1;
+			break;
+		case '9':
 			return 0;
 			break;
 		default:
@@ -96,6 +127,9 @@ int query(ring *r) {
 	}
 }
 
+// Main function that creates an empty list, calls the function
+// that loads it with values and then queries the user. Also prints
+// most recently viewed webpage for the user to quickly access.
 int main() {
 	ring *hist;
 	hist = newRing();
