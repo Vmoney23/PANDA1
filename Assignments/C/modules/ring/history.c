@@ -76,7 +76,7 @@ int query(ring *r) {
 	char link[120] = "open ";
 	scanf("%c%c", &option, &nl);
 	
-	switch(option){
+	switch(option) {
 		case '1':
 			shiftForward(r);
 			printf("Previous:\n%s\n", getCurrent(r));
@@ -136,9 +136,9 @@ int main() {
 	printf("Welcome to your browser history: \n");
 	loadRing(hist);
 	printf("Your last viewed website was:\n%s\n\n", getCurrent(hist));
-	_Bool yes = 1;
-	while (yes) {
-		yes = query(hist);
+	_Bool loop = 1;
+	while (loop) {
+		loop = query(hist);
 	};
 	return 0;
 }
