@@ -3,9 +3,11 @@
 #include <string.h>
 #include <ctype.h>
 
+enum { MAX = 100 };
+
 typedef struct board {
-  char current[10][10];
-  char next[10][10];
+  char current[MAX][MAX];
+  char next[MAX][MAX];
   int size;
 } board;
 
@@ -36,6 +38,15 @@ _Bool isLive(char cell) {
 	} else {
 		return 0; 
 	}
+}
+
+board next(board b) {
+	for (int i = 0; i < getSize(b)-1; i++) {
+		for (int j = 0; j < getSize(b)-1; j++) {
+			strcpy(&b.current[i][j], &b.next[i][j]);
+		}
+	}
+	return b;
 }
 
 // if b.current[i][j] is live and adjacent = 2 or 3, b.next = live
@@ -101,62 +112,44 @@ void printNext(board b) {
 
 // initialises game of life. Takes input colony and stores it in a 'board', updates it and prints the version at the next tick
 int main(int n, char *args[n]) {
-	int i = 0, j = 0;
-	board b;
-	b.size = 0;
-	while (! feof(stdin)) {
-		fgets(&b.current[i][j], 10, stdin);
-		b.size++;
-		if (i < 10) {
-			i++;
+	if (n == 2) {
+		int x, i = 0, j = 0;;
+		printf("Enter n:\n");
+		scanf("%d", &x);
+		printf("Enter pattern (press ctrl+d to terminate pattern): \n");
+		board b;
+		b.size = 0;
+		while (! feof(stdin)) {
+			fgets(&b.current[i][j], MAX, stdin);
+			b.size++;
+			if (i < MAX) {
+				i++;
+			}
 		}
+		printf("\n");
+		for (int i = 0; i < x; i++) {
+			b = update(b);
+			printf("N: %d\n", i);
+			printNext(b);
+			printf("\n");
+			b = next(b);
+		}
+		printf("Final: \n");
+		printNext(b);
+	} else {
+		int i = 0, j = 0;
+		board b;
+		b.size = 0;
+		while (! feof(stdin)) {
+			fgets(&b.current[i][j], MAX, stdin);
+			b.size++;
+			if (i < MAX) {
+				i++;
+			}
+		}
+		b = update(b);
+		printNext(b);
+		char input, nl;
 	}
-	b = update(b);
-	printNext(b);
 	return 0;
 }
-
-/* -- Rules --
-Dead -> Alive
-only 3 cells are Alive
-Alive -> Alive
-2 or 3 cells are Alive
-Dead otherwise
-*/
-
-/* -- 2D --
-Cells:
-(i,j) (0,1) (0,2) ... (0,n)
-(1,0) (1,1) (1,2) ... (1,n)
-(2,0) (2,1) (2,2) ... (2,n)
-,,,
-(n,0) (n,1) (n,2) ... (n,n)
-
-8 cells surrounding (a,b) are:
-1: (a-1,b-1)
-2: (a-1,b)
-3: (a-1,b+1)
-4: (a, b-1)
-5: (a, b+1)
-6: (a+1,b-1)
-7: (a+1,b)
-8: (a+1,b+1)
-*/
-
-/* -- 1D --
-Cells:
-n = row length
-m = total # of characters
-[0,1,2 .. n .. m-1]
-
-8 cells surrounding (x) are:
-1: x-n-1
-2: x-n
-3: x-n+1
-4: x-1
-5: x+1
-6: x+n-1
-7: x+n
-8: x+n+1
-
-*/

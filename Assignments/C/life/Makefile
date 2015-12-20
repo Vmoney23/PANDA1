@@ -22,3 +22,7 @@ test:
 clean:
 	rm -f *.hi *.o
 	rm check colony life
+
+play: life.c
+	gcc -std=c99 life.c -o life
+	./life play
