@@ -1,0 +1,153 @@
+
+package: GLURaw-1.5.0.2
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+flags: usenativewindowslibraries
+dependencies: transformers-0.4.2.0 base-4.8.1.0 OpenGLRaw-2.6.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLUT-2.7.0.3
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+flags: usenativewindowslibraries
+dependencies: transformers-0.4.2.0 containers-0.5.6.2 base-4.8.1.0
+              array-0.5.1.0 StateVar-1.1.0.1 OpenGLRaw-2.6.1.0 OpenGL-2.13.1.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: MonadRandom-0.4.1
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: transformers-compat-0.4.0.4 transformers-0.4.2.0
+              random-1.1 mtl-2.2.1 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: ObjectName-1.1.0.0
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: transformers-0.4.2.0 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGL-2.13.1.1
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: transformers-0.4.2.0 text-1.2.1.3 containers-0.5.6.2
+              bytestring-0.10.6.0 base-4.8.1.0 StateVar-1.1.0.1 OpenGLRaw-2.6.1.0
+              ObjectName-1.1.0.0 GLURaw-1.5.0.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGLRaw-2.6.1.0
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+flags: usenativewindowslibraries useglxgetprocaddress usegles2
+       -osandroid
+dependencies: transformers-0.4.2.0 text-1.2.1.3 half-0.2.2.2
+              containers-0.5.6.2 bytestring-0.10.6.0 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: StateVar-1.1.0.1
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: transformers-0.4.2.0 stm-2.4.4 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: half-0.2.2.2
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: mtl-2.2.1
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: transformers-0.4.2.0 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: random-1.1
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: time-1.5.0.1 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: stm-2.4.4
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: base-4.8.1.0 array-0.5.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: text-1.2.1.3
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+flags: -integer-simple -developer
+dependencies: integer-gmp-1.0.0.0 ghc-prim-0.4.0.0 deepseq-1.4.1.1
+              bytestring-0.10.6.0 binary-0.7.5.0 base-4.8.1.0 array-0.5.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: transformers-compat-0.4.0.4
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+flags: -two -three mtl
+dependencies: transformers-0.4.2.0 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: MonadRandom-0.4.1
+os: osx
+arch: x86_64
+compiler: ghc-7.10.2
+client: cabal-install-1.22.6.0
+dependencies: transformers-compat-0.4.0.4 transformers-0.4.2.0
+              random-1.1 mtl-2.2.1 base-4.8.1.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried

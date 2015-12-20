@@ -1,0 +1,45 @@
+Configuring MonadRandom-0.4.1...
+Building MonadRandom-0.4.1...
+Preprocessing library MonadRandom-0.4.1...
+[1 of 2] Compiling Control.Monad.Random.Class ( Control/Monad/Random/Class.hs, dist/dist-sandbox-3ffad47/build/Control/Monad/Random/Class.o )
+[2 of 2] Compiling Control.Monad.Random ( Control/Monad/Random.hs, dist/dist-sandbox-3ffad47/build/Control/Monad/Random.o )
+
+Control/Monad/Random.hs:49:1: Warning:
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Control/Monad/Random.hs:53:1: Warning:
+    Module ‘Control.Monad.Error’ is deprecated:
+      Use Control.Monad.Except instead
+
+Control/Monad/Random.hs:69:1: Warning:
+    The import of ‘Data.Monoid’ is redundant
+      except perhaps to import instances from ‘Data.Monoid’
+    To import instances alone, use: import Data.Monoid()
+
+Control/Monad/Random.hs:201:11: Warning:
+    In the use of type constructor or class ‘Error’
+    (imported from Control.Monad.Error, but defined in Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Random.hs:201:51: Warning:
+    In the use of type constructor or class ‘ErrorT’
+    (imported from Control.Monad.Error, but defined in Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Random.hs:246:11: Warning:
+    In the use of type constructor or class ‘Error’
+    (imported from Control.Monad.Error, but defined in Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Random.hs:246:53: Warning:
+    In the use of type constructor or class ‘ErrorT’
+    (imported from Control.Monad.Error, but defined in Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+In-place registering MonadRandom-0.4.1...
+Creating package registration file:
+/var/folders/ms/x3y55z9d3kgbrbd3nr_qtyb00000gp/T/pkgConf-MonadRandom-0.48235644401115438165.1
+Installing library in
+/Users/vanshdassani/Desktop/Bristol/PANDA1/Assignments/Haskell/cw4/.cabal-sandbox/lib/x86_64-osx-ghc-7.10.2/MonadRandom-0.4.1-8fkvjjFjRjnCPXlERn2bav
+Registering MonadRandom-0.4.1...
