@@ -107,7 +107,7 @@ int main(int n, char *args[n]) {
 	while (! feof(stdin)) {
 		fgets(&b.current[i][j], 10, stdin);
 		b.size++;
-		if (i < 5) {
+		if (i < 10) {
 			i++;
 		}
 	}
